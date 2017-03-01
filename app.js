@@ -69,24 +69,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-/*
- *     DATABASE CONNECTION
- *
- */
-
-
-
-// Make our db accessible to our router
-app.use(function(req,res,next){
-    req.db = db;
-
-    req.base_url=base_url;
-
-    next();
-});
-
-
 /*
  *     FLASH MESSAGES
  *
@@ -112,39 +94,6 @@ app.use(passport.session());
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
-
-User = db.get('userlist');
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-      //console.log("LocalStrategy working...");
-      User.findOne({ username: username }, function(err, user) {
-	  if (err) {
-	      console.log("Auth failed: username : "+username+ " password: "+password);
-	      return done(err); }
-	  if (!user) {
-              return done(null, false, { message: 'Incorrect username.' });
-	  }
-	  if (user.password !== password) {
-              return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
-
-
-passport.serializeUser(function(user, done) {
-    //console.log('Serializing: ', user);
-    done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-    //console.log('Deserializing: ', id);
-    //console.log('Deserializing');
-    done(null, obj);
-});
 
 
 
