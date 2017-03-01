@@ -7,11 +7,6 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 
 
-// Database
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/nodetest2');
-
 
 var multer  = require('multer');
 
