@@ -66,7 +66,7 @@ app.use(session({ secret: 'keyboard cat',
 app.use(cookieParser());
 */
 
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 /*
@@ -80,6 +80,11 @@ app.use(cookieParser());
 app.use(flash());
 
 
+// Make base_url accessible!
+app.use(function(req, res, next){
+    req.base_url = base_url;
+    next();
+});
 
 
 /*
@@ -147,9 +152,6 @@ onFileUploadComplete: function (file) {
  */
 
 
-
-//STATIC FILES
-app.use(express.static('public'))
 
 
 
