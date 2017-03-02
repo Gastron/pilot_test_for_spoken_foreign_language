@@ -146,6 +146,15 @@ onFileUploadComplete: function (file) {
  *
  */
 
+
+
+//STATIC FILES
+app.use(express.static('public'))
+
+
+
+
+
 app.get('/logout', function logout(req, res){
   if(req.isAuthenticated()){
       req.logout();
