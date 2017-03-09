@@ -8,5 +8,5 @@ modelparam=$modeldir/weights.04-2.39_0.37-1.88_0.48.hdf5 #weights.07-2.34_0.40-1
 normfile=$modeldir/norm
 
 
-source activate tensorflow3
-python dnn_runner/classify_server.py $modelarch $modelparam $normfile
+KERAS_BACKEND=tensorflow
+python3 dnn_runner/classify_server.py $modelarch $modelparam $normfile
