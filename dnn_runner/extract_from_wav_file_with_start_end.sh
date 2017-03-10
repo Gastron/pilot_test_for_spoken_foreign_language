@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sptk="/usr/local/bin";
+sptk="/usr/lib/sptk/bin";
 #sptk="/teamwork/t40511_asr/Modules/opt/sptk/3.8/bin"
 
 workdir=/dev/shm/siak-feat-extract/`date +"%s-%N"`
