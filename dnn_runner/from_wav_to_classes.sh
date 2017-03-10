@@ -29,9 +29,9 @@ done
 mkdir -p $statsdir
 mkdir -p $resultdir
 
-echo python dnn_runner/extract_and_pickle_from_wavfiles.py --recipe $recipe --pickle $pickle --stats $statsdir
+echo "python3 dnn_runner/extract_and_pickle_from_wavfiles.py --recipe $recipe --pickle $pickle --stats $statsdir"
 
-python dnn_runner/extract_and_pickle_from_wavfiles.py --recipe $recipe --pickle $pickle --stats $statsdir
+python3 dnn_runner/extract_and_pickle_from_wavfiles.py --recipe $recipe --pickle $pickle --stats $statsdir
 
 mkdir -p $phonesampleaudiodir
 
@@ -56,14 +56,13 @@ date
 #source activate tensorflow3
 
 #python dnn_runner/classify.py $modelarch $modelparam $normfile $resultdir $pickle 
-python dnn_runner/classify_client.py $resultdir $pickle
+python3 dnn_runner/classify_client.py $resultdir $pickle
 
 date
 
 
 
-source deactivate tensorflow3
 
-python dnn_runner/evaluate_results_and_write_html.py $usercode $resultfiledir/$usercode
+python3 dnn_runner/evaluate_results_and_write_html.py $usercode $resultfiledir/$usercode
 
 
