@@ -31,7 +31,7 @@ var start_listening = function() {
 
 			    exec(extractioncmd);
 			    
-			    var waveletcmd = env.process.WAVELETDIR + '/produce_wavelet_analyses.sh `pwd`/uploads/validator_data/' + userdir + ' `pwd`/public/images/wavelets'
+			    var waveletcmd = process.env.WAVELETDIR + '/produce_wavelet_analyses.sh `pwd`/uploads/validator_data/' + userdir + ' `pwd`/public/images/wavelets'
 
 			    exec(waveletcmd);
 
